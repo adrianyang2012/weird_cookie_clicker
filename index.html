@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+i = 0;
+cpc = 1;
+cps = 0;
+function add(){
+	i = i+cpc;
+    document.getElementById('cookies').innerText = i;
+}
+function upgrade(amount,cost){
+	if (i-1>cost){
+		cpc+=amount;
+        i-=cost;
+    }
+    document.getElementById('cpc').innerText = cpc;
+    document.getElementById('cookies').innerText = i;
+    
+}
+function farm(amount,cost){
+	if (i-1>cost){
+		cps+=amount;
+        i-=cost;
+    }
+    document.getElementById('cps').innerText = cps;
+    document.getElementById('cookies').innerText = i;
+    
+}
+
+</script>
+
+<style>
+div 
+{
+display: inline;
+font-size:10px;
+}
+#cookie {
+	width:100px;
+    height:110px;
+    margin-right:9px;
+    margin-down:10px;
+}
+#cookie:hover{
+	width:109px;
+    height:120px;
+    margin-right:0px;
+    margin-down:0px;
+}
+#cookie:active{
+	width:100px;
+    height:110px;
+    margin-right:9px;
+    margin-down:10px;
+}
+</style>
+<title>Page Title</title>
+</head>
+<body>
+
+<img id="cookie"width= 100px; height = 110px; src="https://www.dessertfortwo.com/wp-content/uploads/2023/04/Single-Serve-Chocolate-Chip-Cookie-5-735x1103.jpg" onclick = 'add();'><div>
+<p></p><img onclick="upgrade(1,100);" width = 30px; height = 30px; src="https://media.istockphoto.com/id/967674060/photo/pickaxe-vintage.jpg?s=612x612&w=0&k=20&c=2e1snM5I7fZdL1Cp4VfRESqxAvNhhMKsqLwFsT6YWeI=">+1 cookies  per click 100$</div>
+<div><img onclick="upgrade(10,500);" width = 30px; height = 30px; src="https://upload.wikimedia.org/wikipedia/commons/7/71/Wolfsburg_VW-Werk.jpg"> +10 cookies per click 500$</div>
+<div><img onclick="upgrade(100,3000);" width = 30px; height = 30px; src="https://t4.ftcdn.net/jpg/00/61/06/27/360_F_61062796_NF87GPnWV0fQ2LhoYNlyjev0PocRwZj9.jpg">+100 cookies per click $3000</div>
+<p></p>
+<div><img onclick="farm(1,150)" width=30px; height=30px; src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Kalgoorlie_The_Big_Pit_DSC04498.JPG/800px-Kalgoorlie_The_Big_Pit_DSC04498.JPG">+1 cookies per second 150$</div>
+<div><img onclick="farm(10,1000)" width=30px; height=30px; src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Kalgoorlie_The_Big_Pit_DSC04498.JPG/800px-Kalgoorlie_The_Big_Pit_DSC04498.JPG">+10 cookies per second 1000$</div>
+<div><img onclick="farm(100,8000)" width=30px; height=30px; src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Kalgoorlie_The_Big_Pit_DSC04498.JPG/800px-Kalgoorlie_The_Big_Pit_DSC04498.JPG">+100 cookies per second 8000$</div>
+<p>cookies: </p><p id = 'cookies'>0</p>
+<p>cookies per click: </p><p id = 'cpc'>1</p>
+<p>cookies per second: </p><p id = 'cps'>0</p>
+</body>
+<script>
+function update(){
+	i+=cps;
+    document.getElementById('cookies').innerText = i;
+}
+setInterval(update,1000);
+</script>
+</html>
+
+
